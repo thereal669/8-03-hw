@@ -3,7 +3,7 @@
 
 ### Задание 1
 
-`Ниже опишу этапы по установке Zabbix сервера`
+`Ниже опишу этапы по установке Zabbix сервера, производил установку на системе Debian 12`
 
 1. `apt install sudo`
 2. `sudo apt update && sudo apt upgrade -y`
@@ -19,33 +19,30 @@
 12. `sudo systemctl enable zabbix-server zabbix-agent apache2`
 
 ![Скрин 1](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/complete_setup.jpg)
-![Скрин 1](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/first_auth.jpg)
+![Скрин 2](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/first_auth.jpg)
 
 
 ---
 
 ### Задание 2
 
-`Приведите ответ в свободной форме........`
+`Установка zabbix-agent'а на виртуальные машины Debian 12`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+1. `wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian12_all.deb`
+2. `dpkg -i zabbix-release_latest_7.4+debian12_all.deb`
+3. `apt update`
+4. `apt install zabbix-agent`
+5. `sudo nano /etc/zabbix/zabbix_agentd.conf (заменить ip-адреса сервера + написать хостнейм, по возможности можно раскоментировать порты актуальные)`
+6. `systemctl restart zabbix-agent`
+7. `systemctl enable zabbix-agent`
 
-```
-Поле для вставки кода...
-....
-....
-....
-....
-```
+![Скрин 3](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/two_hosts_import.jpg)
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
+![Скрин 4](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/logs_zabbix_agent.jpg)
+
+![Скрин 5](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/logs_zabbix_agent_2.jpg)
+
+![Скрин 6](https://raw.githubusercontent.com/thereal669/8-03-hw/main/pics/latest_data.jpg)
 
 
----
 
